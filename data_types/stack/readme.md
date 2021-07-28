@@ -10,7 +10,7 @@ LIFO - last in first out
 
 ## Perfomance
 
-| / | best | worst | 
-| push | 1 | N |
-| pop | 1 | N |
-| size | 1 | 1 |
+|   #  | best | worst | 
+| push |   1  |   N   | 
+| pop  |   1  |   N   |
+| size |   1  |   1   |
