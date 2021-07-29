@@ -34,8 +34,8 @@ Amortized - Efficient solution.
     -pop(): halve size of array s[] when array is 1/4 full.
 
 Linked-list implementation.
--Every operation takes constant time in the worst case.
--Uses extra time and space to deal with the links.
+- Every operation takes constant time in the worst case.
+- Uses extra time and space to deal with the links.
 Resizing-array implementation.
--Every operation takes constant amortized time.
--Less wasted space.
+- Every operation takes constant amortized time.
+- Less wasted space.
