@@ -9,7 +9,7 @@ LIFO - last in first out
 - pop() string { // remove string from stack, and return removed val}
 - isEmpty() bool { // check is the stack empty }
 - size() int { // size }
-- iterate() ??? { // ??? }
+- iterate() void { // print all list  }
 
 ## Perfomance
 
