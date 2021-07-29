@@ -42,3 +42,6 @@ Linked-list implementation.
 Resizing-array implementation.
 - Every operation takes constant amortized time.
 - Less wasted space.
+
+## Code Examples
+Linked List https://play.golang.org/p/iT0AYdfTjiH
