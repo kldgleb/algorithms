@@ -59,7 +59,7 @@ func (l *linkedList) pop() (string, error) {
 	return buffer, nil
 }
 
-func (l linkedList) getSize() int {
+func (l *linkedList) getSize() int {
 	return l.size
 }
 
