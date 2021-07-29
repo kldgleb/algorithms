@@ -6,7 +6,8 @@ LIFO - last in first out
 ## API
 
 - push(string val) void  { // insert new string into stack }
-- pop() string { // remove string from stack, and return removed val}
+- pop() string { // remove string from stack, and return removed val }
+- top() string { //return top element }
 - isEmpty() bool { // check is the stack empty }
 - size() int { // size }
 - iterate() void { // print all list  }

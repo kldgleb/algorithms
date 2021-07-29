@@ -41,6 +41,9 @@ func main() {
 
 	size := linkedList.getSize()
 	fmt.Printf("Size of list = %v \n", size)
+
+	top := linkedList.top()
+	fmt.Printf("Top value %v", top)
 }
 
 func (l *linkedList) push(val string) {
@@ -61,6 +64,10 @@ func (l *linkedList) pop() (string, error) {
 
 func (l *linkedList) getSize() int {
 	return l.size
+}
+
+func (l *linkedList) top() string {
+	return l.head.val
 }
 
 func (l linkedList) itterate() {
