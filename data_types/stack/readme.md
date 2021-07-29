@@ -25,9 +25,9 @@ LIFO - last in first out
 
 |   #  |   best  | worst | amortized |
 | :--- |  :----: | :---: | :--: |
-| push |    1    |   N   |   1
-| pop  |    1    |   N   |   1
-| size |    1    |   1   |   1
+| push |    1    |   N   |   1  |
+| pop  |    1    |   N   |   1  |
+| size |    1    |   1   |   1  |
 Amortized:
   Efficient solution.
     ・push(): double size of array s[] when array is full.
