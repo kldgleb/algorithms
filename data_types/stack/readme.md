@@ -29,9 +29,9 @@ LIFO - last in first out
 | pop  |    1    |   N   |   1  |
 | size |    1    |   1   |   1  |
 
-Amortized - Efficient solution.
-    -push(): double size of array s[] when array is full.
-    -pop(): halve size of array s[] when array is 1/4 full.
+Amortized = Efficient solution.
+    - push(): double size of array s[] when array is full.
+    - pop(): halve size of array s[] when array is 1/4 full.
 
 Linked-list implementation.
 - Every operation takes constant time in the worst case.
