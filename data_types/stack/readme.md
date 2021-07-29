@@ -44,4 +44,4 @@ Resizing-array implementation.
 - Less wasted space.
 
 ## Code Examples
-Linked List https://play.golang.org/p/iT0AYdfTjiH
+Linked List https://play.golang.org/p/7NCq72p2Hbs
