@@ -33,6 +33,8 @@ Amortized = Efficient solution.
 - push(): double size of array s[] when array is full.
 - pop(): halve size of array s[] when array is 1/4 full.
 
+## Summary
+
 Linked-list implementation.
 - Every operation takes constant time in the worst case.
 - Uses extra time and space to deal with the links.
