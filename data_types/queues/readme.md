@@ -14,4 +14,4 @@
 ## Summary
 
 ## Code Examples
-LinkedList implementation: https://play.golang.org/p/aj4qR-PDNu6
+LinkedList implementation: https://play.golang.org/p/OyFf0SUee3A
