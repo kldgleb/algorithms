@@ -3,8 +3,9 @@ package main
 import "fmt"
 
 type linkedList struct {
-	head *node
-	tail *node
+	head   *node
+	tail   *node
+	lenght int
 }
 type node struct {
 	val  string
@@ -12,13 +13,14 @@ type node struct {
 }
 
 func main() {
-	queue := &linkedList{nil, nil}
+	queue := &linkedList{nil, nil, 0}
 	queue.isEmpty()
 	queue.enqueue("1")
 	queue.enqueue("2")
 	queue.enqueue("3")
 	queue.dequeue()
 	queue.itterate()
+	fmt.Println("size: ", queue.size())
 }
 
 func (q *linkedList) isEmpty() bool {
@@ -34,6 +36,7 @@ func (q *linkedList) enqueue(val string) {
 	} else {
 		oldTail.next = q.tail
 	}
+	q.lenght++
 }
 
 func (q *linkedList) dequeue() string {
@@ -42,6 +45,7 @@ func (q *linkedList) dequeue() string {
 	if q.isEmpty() {
 		q.tail = nil
 	}
+	q.lenght--
 	return toDelete
 }
 
@@ -50,4 +54,8 @@ func (q linkedList) itterate() {
 		fmt.Println(q.head.val)
 		q.head = q.head.next
 	}
+}
+
+func (q *linkedList) size() int {
+	return q.lenght
 }
