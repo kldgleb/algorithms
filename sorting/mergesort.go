@@ -2,6 +2,9 @@ package main
 
 import "fmt"
 
+//often exit with error index out of range [10] with length 10, line 35
+// idk why
+
 func main() {
 	a := []int{8, 4, 10, 9, 7, 2, 6, 3, 5, 1}
 	empty := []int{}
