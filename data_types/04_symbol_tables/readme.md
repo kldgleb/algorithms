@@ -1,6 +1,8 @@
 
 ## Description 
-    Symbol tables (таблица идентификаторов) - основная идея возможность добавлять в таблицу пару ключ-значение и находить по ключу, его значение.
+    
+### Symbol tables (таблица идентификаторов) - основная идея возможность добавлять в таблицу пару ключ-значение и находить по ключу, его значение.
+
 ## API
 - put(key int, val string) { // put key-value pair into table (if key alredy exist rewrite value)}
 - get(key int) string { // get value by key }      
