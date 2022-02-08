@@ -1,20 +1,8 @@
-package main
+package priorityQueue
 
 import "fmt"
 
-type heap struct {
-	slice []int
-	n     int
-}
-
-func main() {
-	array := []int{7, 2, 3, 4, 5, 6, 1}
-	h := sort(array)
-	fmt.Println(h.slice)
-}
-
-func sort(slice []int) *heap {
-
+func Sort(slice []int) *heap {
 	empty := []int{0}
 	empty = append(empty, slice...)
 	heap := &heap{empty, len(empty) - 1}
@@ -30,25 +18,4 @@ func sort(slice []int) *heap {
 		}
 	}
 	return heap
-}
-
-func (h *heap) sink(key int) {
-	for 2*key <= h.n {
-		j := 2 * key
-		if j < h.n && h.slice[j] < h.slice[j+1] {
-			j++
-		}
-		if h.slice[j] < h.slice[key] {
-			break
-		}
-		key = j
-		h.exch(key, j)
-	}
-}
-
-func (h *heap) exch(a, b int) {
-	fmt.Println("exch: ", h.slice[a], "and", h.slice[b])
-	buffer := h.slice[b]
-	h.slice[b] = h.slice[a]
-	h.slice[a] = buffer
 }

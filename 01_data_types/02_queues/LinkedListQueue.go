@@ -1,61 +1,60 @@
-package main
+package queue
 
-import "fmt"
+import (
+	"errors"
+	"fmt"
+)
 
-type linkedList struct {
+type linkedListQueue struct {
 	head   *node
 	tail   *node
-	lenght int
+	length int
 }
+
 type node struct {
 	val  string
 	next *node
 }
 
-func main() {
-	queue := &linkedList{nil, nil, 0}
-	queue.isEmpty()
-	queue.enqueue("1")
-	queue.enqueue("2")
-	queue.enqueue("3")
-	queue.dequeue()
-	queue.itterate()
-	fmt.Println("size: ", queue.size())
+func NewLinkedListQueue() *linkedListQueue {
+	return &linkedListQueue{nil, nil, 0}
 }
 
-func (q *linkedList) isEmpty() bool {
-	return q.head == nil
-}
-
-func (q *linkedList) enqueue(val string) {
+func (q *linkedListQueue) Enqueue(val string) {
 	oldTail := q.tail
 	node := &node{val, nil}
 	q.tail = node
-	if q.isEmpty() {
+	if q.IsEmpty() {
 		q.head = q.tail
 	} else {
 		oldTail.next = q.tail
 	}
-	q.lenght++
+	q.length++
 }
 
-func (q *linkedList) dequeue() string {
+func (q *linkedListQueue) Dequeue() (string, error) {
+	if q.IsEmpty() {
+		return "", errors.New("empty queue")
+	}
 	toDelete := q.head.val
 	q.head = q.head.next
-	if q.isEmpty() {
-		q.tail = nil
-	}
-	q.lenght--
-	return toDelete
+	q.length--
+	return toDelete, nil
 }
 
-func (q linkedList) itterate() {
+func (q *linkedListQueue) IsEmpty() bool {
+	return q.head == nil
+}
+
+func (q *linkedListQueue) Size() int {
+	return q.length
+}
+
+func (q linkedListQueue) Iterate() {
+	index := 0
 	for q.head != nil {
-		fmt.Println(q.head.val)
+		fmt.Printf("Queue index: %d value: %s \n", index, q.head.val)
 		q.head = q.head.next
+		index++
 	}
-}
-
-func (q *linkedList) size() int {
-	return q.lenght
 }

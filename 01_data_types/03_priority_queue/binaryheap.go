@@ -1,8 +1,7 @@
-package main
+package priorityQueue
 
 import (
 	"errors"
-	"fmt"
 )
 
 type heap struct {
@@ -10,33 +9,18 @@ type heap struct {
 	n     int
 }
 
-func main() {
-	empty := []int{0}
-	heap := &heap{empty, 0}
-
-	heap.insert(1)
-	heap.insert(3)
-	heap.insert(2)
-
-	max, err := heap.delMax()
-	if err != nil {
-		fmt.Println(err)
-	} else {
-		fmt.Println(max)
-	}
-
-	result := heap.slice[1 : heap.n+1]
-	fmt.Println(result)
+func NewHeap() *heap {
+	return &heap{[]int{0}, 0}
 }
 
-func (h *heap) insert(val int) {
+func (h *heap) Insert(val int) {
 	h.slice = append(h.slice, val)
 	h.n++
 	h.swim(h.n)
 }
 
-func (h *heap) delMax() (int, error) {
-	if h.isEmpty() {
+func (h *heap) DelMax() (int, error) {
+	if h.IsEmpty() {
 		return 0, errors.New("empty queue")
 	}
 	buffer := h.slice[1]
@@ -45,6 +29,18 @@ func (h *heap) delMax() (int, error) {
 	h.slice = h.slice[:h.n+1]
 	h.sink(1)
 	return buffer, nil
+}
+
+func (h heap) IsEmpty() bool {
+	return h.n == 0
+}
+
+func (h heap) Max() int {
+	return h.slice[1]
+}
+
+func (h *heap) Size() int {
+	return h.n
 }
 
 func (h *heap) sink(key int) {
@@ -72,8 +68,4 @@ func (h *heap) exch(a, b int) {
 	buffer := h.slice[b]
 	h.slice[b] = h.slice[a]
 	h.slice[a] = buffer
-}
-
-func (h *heap) isEmpty() bool {
-	return h.n == 0
 }

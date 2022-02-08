@@ -1,45 +1,63 @@
-package main
+package stack
 
 import (
 	"errors"
 	"fmt"
 )
 
-type stack struct {
+type ArrayStack struct {
 	slice []string
 }
 
-func main() {
-	s := &stack{[]string{}}
-	s.push("1")
-	s.push("2")
-	s.push("3")
+//func main() {
+//	s := &stack{[]string{}}
+//	s.push("1")
+//	s.push("2")
+//	s.push("3")
+//
+//	err := s.pop()
+//	if err != nil {
+//		fmt.Println(err)
+//	}
+//
+//	fmt.Println("Size: ", s.size())
+//	fmt.Println(s.slice)
+//}
 
-	err := s.pop()
-	if err != nil {
-		fmt.Println(err)
-	}
-
-	fmt.Println("Size: ", s.size())
-	fmt.Println(s.slice)
+func NewArrayStack() *ArrayStack {
+	return &ArrayStack{[]string{}}
 }
 
-func (s *stack) push(val string) {
+func (s *ArrayStack) Push(val string) {
 	s.slice = append(s.slice, val)
 }
 
-func (s *stack) pop() error {
-	if s.isEmpty() {
-		return errors.New("empty stack")
+func (s *ArrayStack) Pop() (string, error) {
+	if s.IsEmpty() {
+		return "", errors.New("empty stack")
 	}
+	buffer := s.slice[len(s.slice)-1]
 	s.slice = s.slice[:len(s.slice)-1]
-	return nil
+	return buffer, nil
 }
 
-func (s *stack) size() int {
+func (s *ArrayStack) Size() int {
 	return len(s.slice)
 }
 
-func (s *stack) isEmpty() bool {
+func (s *ArrayStack) IsEmpty() bool {
 	return s.slice == nil
+}
+
+func (s *ArrayStack) Top() (string, error) {
+	if s.IsEmpty() {
+		return "", errors.New("empty stack")
+	}
+	return s.slice[len(s.slice)-1], nil
+}
+
+func (s *ArrayStack) Iterate() {
+	for i, v := range s.slice {
+		fmt.Printf("Stack index: %d value: %s \n", i, v)
+	}
 }
