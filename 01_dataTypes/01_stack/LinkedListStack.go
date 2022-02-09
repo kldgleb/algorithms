@@ -81,11 +81,12 @@ func (l LinkedListStack) Top() (string, error) {
 	return l.head.val, nil
 }
 
-func (l LinkedListStack) Iterate() {
+func (l LinkedListStack) Iterate() (result string) {
 	index := 0
 	for l.head != nil {
-		fmt.Printf("Stack index: %d value: %s \n", index, l.head.val)
+		result += fmt.Sprintf("Stack index: %d value: %s \n", index, l.head.val)
 		index++
 		l.head = l.head.prev
 	}
+	return result
 }

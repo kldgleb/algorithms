@@ -50,11 +50,12 @@ func (q *linkedListQueue) Size() int {
 	return q.length
 }
 
-func (q linkedListQueue) Iterate() {
+func (q linkedListQueue) Iterate() (result string) {
 	index := 0
 	for q.head != nil {
-		fmt.Printf("Queue index: %d value: %s \n", index, q.head.val)
+		result += fmt.Sprintf("Queue index: %d value: %s \n", index, q.head.val)
 		q.head = q.head.next
 		index++
 	}
+	return result
 }

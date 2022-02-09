@@ -34,8 +34,9 @@ func (q *arrayQueue) Size() int {
 	return len(q.slice)
 }
 
-func (q *arrayQueue) Iterate() {
+func (q *arrayQueue) Iterate() (result string) {
 	for i, v := range q.slice {
-		fmt.Printf("Queue index: %d value: %s \n", i, v)
+		result += fmt.Sprintf("Queue index: %d value: %s \n", i, v)
 	}
+	return result
 }

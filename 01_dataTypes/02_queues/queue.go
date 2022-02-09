@@ -5,7 +5,7 @@ type Queue interface {
 	Dequeue() (string, error)
 	IsEmpty() bool
 	Size() int
-	Iterate()
+	Iterate() string
 }
 
 func Enqueue(q Queue, val string) {
@@ -24,6 +24,6 @@ func Size(q Queue) int {
 	return q.Size()
 }
 
-func Iterate(q Queue) {
-	q.Iterate()
+func Iterate(q Queue) string {
+	return q.Iterate()
 }

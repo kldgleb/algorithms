@@ -6,7 +6,7 @@ type Stack interface {
 	Size() int
 	Top() (string, error)
 	IsEmpty() bool
-	Iterate()
+	Iterate() string
 }
 
 func Push(stack Stack, val string) {
@@ -29,6 +29,6 @@ func IsEmpty(stack Stack) bool {
 	return stack.IsEmpty()
 }
 
-func Print(stack Stack) {
-	stack.Iterate()
+func Iterate(stack Stack) string {
+	return stack.Iterate()
 }

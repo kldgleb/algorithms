@@ -56,8 +56,9 @@ func (s *ArrayStack) Top() (string, error) {
 	return s.slice[len(s.slice)-1], nil
 }
 
-func (s *ArrayStack) Iterate() {
+func (s *ArrayStack) Iterate() (result string) {
 	for i, v := range s.slice {
-		fmt.Printf("Stack index: %d value: %s \n", i, v)
+		result += fmt.Sprintf("Stack index: %d value: %s \n", i, v)
 	}
+	return result
 }
