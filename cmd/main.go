@@ -14,16 +14,17 @@ func main() {
 func testPriorityQueue(h priorityQueue.PriorityQueue) {
 	fmt.Println("\n \n Testing PriorityQueue...")
 
-	h.Insert(1)
-	fmt.Println("Add value: ", 1)
-
-	h.Insert(3)
+	priorityQueue.Insert(h, 3)
 	fmt.Println("Add value: ", 3)
 
-	h.Insert(2)
-	fmt.Println("Add value: ", 2)
+	priorityQueue.Insert(h, 4)
+	fmt.Println("Add value: ", 4)
 
-	fmt.Println("Max value: ", h.Max())
+	priorityQueue.Insert(h, 1)
+	fmt.Println("Add value: ", 1)
+
+	max, _ := h.Max()
+	fmt.Println("Max value: ", max)
 	max, err := h.DelMax()
 	if err != nil {
 		fmt.Println(err)

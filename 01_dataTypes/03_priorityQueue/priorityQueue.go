@@ -4,7 +4,7 @@ type PriorityQueue interface {
 	Insert(int)
 	DelMax() (int, error)
 	IsEmpty() bool
-	Max() int
+	Max() (int, error)
 	Size() int
 }
 
@@ -20,7 +20,7 @@ func IsEmpty(p PriorityQueue) bool {
 	return p.IsEmpty()
 }
 
-func Max(p PriorityQueue) int {
+func Max(p PriorityQueue) (int, error) {
 	return p.Max()
 }
 
