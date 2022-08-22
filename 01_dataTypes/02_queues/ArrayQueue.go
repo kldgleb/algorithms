@@ -5,38 +5,38 @@ import (
 	"fmt"
 )
 
-type arrayQueue struct {
-	slice []string
+type ArrayQueue struct {
+	Slice []int
 }
 
-func NewArrayQueue() *arrayQueue {
-	return &arrayQueue{[]string{}}
+func NewArrayQueue() *ArrayQueue {
+	return &ArrayQueue{[]int{}}
 }
 
-func (q *arrayQueue) Enqueue(val string) {
-	q.slice = append(q.slice, val)
+func (q *ArrayQueue) Enqueue(val int) {
+	q.Slice = append(q.Slice, val)
 }
 
-func (q *arrayQueue) Dequeue() (string, error) {
+func (q *ArrayQueue) Dequeue() (int, error) {
 	if q.IsEmpty() {
-		return "", errors.New("queue is empty")
+		return 0, errors.New("queue is empty")
 	}
-	buffer := q.slice[0]
-	q.slice = q.slice[len(q.slice)-(len(q.slice)-1):]
+	buffer := q.Slice[0]
+	q.Slice = q.Slice[len(q.Slice)-(len(q.Slice)-1):]
 	return buffer, nil
 }
 
-func (q *arrayQueue) IsEmpty() bool {
-	return q.slice == nil
+func (q *ArrayQueue) IsEmpty() bool {
+	return q.Slice == nil || q.Size() == 0
 }
 
-func (q *arrayQueue) Size() int {
-	return len(q.slice)
+func (q *ArrayQueue) Size() int {
+	return len(q.Slice)
 }
 
-func (q *arrayQueue) Iterate() (result string) {
-	for i, v := range q.slice {
-		result += fmt.Sprintf("Queue index: %d value: %s \n", i, v)
+func (q *ArrayQueue) Iterate() (result string) {
+	for i, v := range q.Slice {
+		result += fmt.Sprintf("Queue index: %d value: %d \n", i, v)
 	}
 	return result
 }

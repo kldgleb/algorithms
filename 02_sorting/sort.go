@@ -1,9 +1,9 @@
-// package sort
+package sort
 
-// type Sort interface {
-// 	Sort(interface{}) interface{}
-// }
+type Sorter interface {
+	Sort([]int)
+}
 
-// func Sort(s Sort, sliceOrArray interface{}) {
-// 	s.Sort(sliceOrArray)
-// }
+func Sort(s Sorter, data []int) {
+	s.Sort(data)
+}

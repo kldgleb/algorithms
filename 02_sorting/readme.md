@@ -29,7 +29,7 @@ Quicksort:
 
 Mergesort implementation: https://play.golang.org/p/wcYJuIvP9wY
 
-Quicksort implementation: (broken, cursed, idk) https://play.golang.org/p/hd3YA_XSW3R
+Quicksort implementation: https://play.golang.org/p/hd3YA_XSW3R
 
 <img src="/images/PerformanceSorting.png" />
 

@@ -1,42 +1,29 @@
 package main
 
 import (
-	priorityQueue "algorithms/01_dataTypes/03_priorityQueue"
 	"fmt"
+
+	graph "github.com/kldgleb/algorithms/algo/Graph"
 )
 
 func main() {
-	heapPriorityQueue := priorityQueue.NewHeap()
-	testPriorityQueue(heapPriorityQueue)
-	testHeapSort()
-}
+	g := graph.NewUdGraph()
+	g.AddEdge(0, 1)
+	g.AddEdge(0, 2)
+	g.AddEdge(0, 6)
+	g.AddEdge(0, 5)
+	g.AddEdge(6, 4)
+	g.AddEdge(4, 3)
+	g.AddEdge(4, 5)
+	g.AddEdge(5, 3)
+	g.AddEdge(5, 4)
 
-func testPriorityQueue(h priorityQueue.PriorityQueue) {
-	fmt.Println("\n \n Testing PriorityQueue...")
+	g.AddEdge(7, 8)
 
-	priorityQueue.Insert(h, 3)
-	fmt.Println("Add value: ", 3)
+	g.AddEdge(10, 9)
+	g.AddEdge(9, 11)
+	g.AddEdge(9, 12)
+	g.AddEdge(11, 12)
 
-	priorityQueue.Insert(h, 4)
-	fmt.Println("Add value: ", 4)
-
-	priorityQueue.Insert(h, 1)
-	fmt.Println("Add value: ", 1)
-
-	max, _ := h.Max()
-	fmt.Println("Max value: ", max)
-	max, err := h.DelMax()
-	if err != nil {
-		fmt.Println(err)
-	} else {
-		fmt.Println("Deleted value: ", max)
-	}
-}
-
-func testHeapSort() {
-	fmt.Println("\n \n Testing Heapsort...")
-
-	array := []int{7, 2, 3, 4, 5, 6, 1}
-	h := priorityQueue.Sort(array)
-	fmt.Println(h)
+	fmt.Println(g.BreadthFirstSearch(0))
 }

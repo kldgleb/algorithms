@@ -1,18 +1,18 @@
 package queue
 
 type Queue interface {
-	Enqueue(string)
-	Dequeue() (string, error)
+	Enqueue(int)
+	Dequeue() (int, error)
 	IsEmpty() bool
 	Size() int
 	Iterate() string
 }
 
-func Enqueue(q Queue, val string) {
+func Enqueue(q Queue, val int) {
 	q.Enqueue(val)
 }
 
-func Dequeue(q Queue) (string, error) {
+func Dequeue(q Queue) (int, error) {
 	return q.Dequeue()
 }
 
